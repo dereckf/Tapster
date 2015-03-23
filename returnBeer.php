@@ -53,15 +53,16 @@
 				$terms = htmlspecialchars($_GET['beer']);
 				echo 'You searched: '.$terms;
 				echo '<p>Results: </p>';
+				$url = "http://api.openbeerdatabase.com/v1/beers.json?query=".$terms;
+				$json = file_get_contents($url);
+				$data = json_decode($json, TRUE);
+				foreach($data['beers'] as $item) {
+					print $item['name'];
+					print ' - ';
+					print $item['description'];
+					print '<br></br>';
+				}
 				?>
-				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-				<script>
-					$.getJSON("http://api.openbeerdatabase.com/v1/breweries.json?callback=?", function(response) {
-						$(response.breweries).each(function() {
-							$("#example-breweries").append($("<li>", { text : this.name }));
-						});
-					});
-				</script>
 			<br></br>
 			</div>
 			<div class="floatRight">
