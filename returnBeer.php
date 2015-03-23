@@ -43,6 +43,9 @@
 	</head>
 	<body>
 		<div id="container">
+			<div class="floatRight">
+				<img src="beerpics/tapsterLogo.png" alt="Tapster Logo"/>
+			</div>
 			<div class="floatCenter">
 				<h1>Tapster</h1>
 				<h2>Beer Library and Search</h2>
@@ -50,8 +53,9 @@
 			<br></br>
 			<div id="php_and_json">
 				<?php 
-				$terms = htmlspecialchars($_GET['beer']);
-				echo 'You searched: '.$terms;
+				$rawterms = htmlspecialchars($_GET['beer']);
+				$terms = str_replace(" ", "%20", $rawterms);
+				echo 'You searched: '.$rawterms;
 				echo '<p>Results: </p>';
 				$url = "http://api.openbeerdatabase.com/v1/beers.json?query=".$terms;
 				$json = file_get_contents($url);
