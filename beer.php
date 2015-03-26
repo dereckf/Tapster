@@ -53,17 +53,17 @@
 			<br></br>
 			<div id="php_and_json">
 				<?php 
-				$rawterms = htmlspecialchars($_GET['beer']);
-				$terms = str_replace(" ", "%20", $rawterms);
-				echo 'You searched: '.$rawterms;
-				echo '<p>Results: </p>';
+				$var = htmlspecialchars($_GET['v']);
+				$terms = str_replace(" ", "%20", $var);
 				$url = "http://api.openbeerdatabase.com/v1/beers.json?query=".$terms;
 				$json = file_get_contents($url);
 				$data = json_decode($json, TRUE);
-				foreach($data['beers'] as $item) {
-					print '<a href="beer.php?v=' . $item['name'] . '" name="v">' . $item['name'] . '</a>';
-					print '<br></br>';
-				}
+				$item = $data['beers'][0];
+				print "<p>Name: ".$item['name']."</p>";
+				print "<p>Brewery: ".$item['brewery']['name']."</p>";
+				print "<p>ABV%: ".$item['abv']."</p>";
+				print "<br></br>";
+				print $item['description'];
 				?>
 			<br></br>
 			</div>
