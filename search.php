@@ -70,7 +70,7 @@
 			<br></br>
 			</div>
 			<div class="floatRight">
-				<h2><a href="beer.html">Return Home</a></h2>
+				<h2><a href="tapster.html">Return Home</a></h2>
 				<br></br>
 			</div>
 			<div class="divider">
