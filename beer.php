@@ -59,11 +59,11 @@
 				$json = file_get_contents($url);
 				$data = json_decode($json, TRUE);
 				$item = $data['beers'][0];
-				print "<p>Name: ".$item['name']."</p>";
-				print "<p>Brewery: ".$item['brewery']['name']."</p>";
-				print "<p>ABV%: ".$item['abv']."</p>";
-				print "<br></br>";
-				print $item['description'];
+				echo "<p>Name: ".$item['name']."</p>";
+				echo "<p>Brewery: ".$item['brewery']['name']."</p>";
+				echo "<p>ABV%: ".$item['abv']."</p>";
+				echo "<br></br>";
+				echo $item['description'];
 				?>
 			<br></br>
 			</div>

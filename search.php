@@ -61,8 +61,8 @@
 				$json = file_get_contents($url);
 				$data = json_decode($json, TRUE);
 				foreach($data['beers'] as $item) {
-					print '<a href="beer.php?v=' . $item['name'] . '" name="v">' . $item['name'] . '</a>';
-					print '<br></br>';
+					echo '<a href="beer.php?v=' . $item['name'] . '" name="v">' . $item['name'] . '</a>';
+					echo '<br></br>';
 				}
 				?>
 			<br></br>
