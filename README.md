@@ -18,4 +18,10 @@ This is a web interface for the OpenBeerDatabase API.
 
 `firefox tapster.html` 
 
+##To import the local database into MySQL:
+
+`mysql -u username -ppassword database_name < tap_dump.sql`
+(checklogin.php and checkreg.php assume that you are the root user and that there is no password set)
+
+
 That's it! It should make simple queries now - more functionality (such as a login) will be added later. Let me know if there are any issues.
