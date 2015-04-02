@@ -18,7 +18,7 @@ if(!$user) {
 
 	$hostname = 'localhost';
 	$dbuser = 'root';
-	$dbpass = 'l33th4XX';
+	$dbpass = '';
 	$db = 'tapster';
 	$table = 'tap_users';
 	$name = 'name';
