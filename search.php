@@ -58,7 +58,7 @@
 				if (strlen( $rawterms) < 2) {
 					echo "<br></br>";
 					echo 'You searched: '.$rawterms;
-                    echo '<br></br>';
+                    			echo '<br></br>';
 					echo "Your Search term was too short, please enter a search with 2 or more characters";
 				}
 				else {
