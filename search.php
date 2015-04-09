@@ -54,15 +54,23 @@
 			<div id="php_and_json">
 				<?php 
 				$rawterms = htmlspecialchars($_GET['beer']);
-				$terms = str_replace(" ", "%20", $rawterms);
-				echo 'You searched: '.$rawterms;
-				echo '<p>Results: </p>';
-				$url = "http://api.openbeerdatabase.com/v1/beers.json?query=".$terms;
-				$json = file_get_contents($url);
-				$data = json_decode($json, TRUE);
-				foreach($data['beers'] as $item) {
-					echo '<a href="beer.php?v=' . $item['name'] . '" name="v">' . $item['name'] . '</a>';
-					echo '<br></br>';
+				if (strlen( $rawterms) < 2) {
+					echo "<br></br>";
+					echo 'You searched: '.$rawterms;
+                    			echo '<br></br>';
+					echo "Your Search term was too short, please enter a search with 2 or more characters";
+				}
+				else {
+					$terms = preg_replace('/\s+/', '%20', $rawterms);
+					echo 'You searched: '.$rawterms;
+					echo '<p>Results: </p>';
+					$url = "http://api.openbeerdatabase.com/v1/beers.json?query=".$terms;
+					$json = file_get_contents($url);
+					$data = json_decode($json, TRUE);
+					foreach($data['beers'] as $item) {
+						echo '<a href="beer.php?v=' . $item['name'] . '" name="v">' . $item['name'] . '</a>';
+						echo '<br></br>';
+					}
 				}
 				?>
 			<br></br>
